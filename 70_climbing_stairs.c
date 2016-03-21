@@ -1,7 +1,6 @@
 #include <assert.h>
 #include <stdio.h>
 
-
 /**
  * f(2) = f(0) + f(1)
  * f(3) = f(1) + f(2)
@@ -10,19 +9,19 @@
  */
 int climbStairs(int n) {
 /*
-	if(n < 3) 
-		return n;
-	return climbStairs(n-1) + climbStairs(n-2);
+    if(n < 3) 
+        return n;
+    return climbStairs(n-1) + climbStairs(n-2);
 */
-	int pre1 = 0, pre2 = 1, result = 1;
+    int pre1 = 0, pre2 = 1, result = 1;
 
-	while(n-- > 0) {
-		result = pre1 + pre2;
-		pre1 = pre2;
-		pre2 = result;
-	}
+    while(n-- > 0) {
+        result = pre1 + pre2;
+        pre1 = pre2;
+        pre2 = result;
+    }
 
-	return result;
+    return result;
 }
 
 int main(int argc, char **argv) {
