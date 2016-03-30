@@ -23,7 +23,16 @@ void traversal(root) {
     if(root) {
         Queue->push(root);
         Queue->pop(root);
-
+        
+        if(root->left) {
+            queue->push(root->left);
+            queue->push(root->right);   
+        }
     }
 
+}
+
+int main() {
+
+    return 0;
 }
