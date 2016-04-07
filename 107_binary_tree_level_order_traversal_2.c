@@ -101,6 +101,11 @@ void queue_destroy(Queue *queue) {
     free(queue->stack2);
 }
 
+/**
+ * Return an array of arrays of size *returnSize.
+ * The sizes of the arrays are returned as *columnSizes array.
+ * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
+ */
 int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize) {
     if(root == NULL) {
         *returnSize = 0;
