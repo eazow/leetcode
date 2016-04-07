@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <stdint.h>
 
 #define SIZE 1000
 
@@ -102,26 +102,31 @@ void queue_destroy(Queue *queue) {
 }
 
 int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize) {
+    if(root == NULL) {
+        *returnSize = 0;
+        *columnSizes = NULL;
+        return NULL;
+    }
+
+
     Queue *queue = queue_create();
     Stack *vals_stack = stack_create();
     Stack *nodes_count_stack = stack_create();
     int nodes_count = 0;
     int i = 0;
-    if(root) {
-        queue_push(queue, root);
-        struct TreeNode *tree_node = NULL;
-        while(!queue_empty(queue)) {
-            nodes_count = queue_size(queue);
-            stack_push(nodes_count_stack, (struct TreeNode *)nodes_count);
-
-            struct TreeNode *tree_node = queue_pop(queue);
-            for(i = 0; i < queue_size; i++) {
-                if(tree_node->left)
-                    queue_push(queue, tree_node->left);
-                if(tree_node->right)
-                    queue_push(queue, tree_node->right);
-            }
-            stack_push(vals_stack, (struct TreeNode *)tree_node->val);
+    queue_push(queue, root);
+    struct TreeNode *tree_node = NULL;
+    while(!queue_empty(queue)) {
+        nodes_count = queue_size(queue);
+        stack_push(nodes_count_stack, (struct TreeNode *)(intptr_t)nodes_count);
+        
+        for(i = 0; i < nodes_count; i++) {
+            tree_node = queue_pop(queue);
+            if(tree_node->left)
+                queue_push(queue, tree_node->left);
+            if(tree_node->right)
+                queue_push(queue, tree_node->right);
+            stack_push(vals_stack, (struct TreeNode *)(intptr_t)tree_node->val);
         }
     }
 
@@ -130,13 +135,13 @@ int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize
     *columnSizes = (int *)malloc(sizeof(int) * (*returnSize));
     int **return_arrays = (int **)malloc(sizeof(int *) * (*returnSize));
 
+
     while(!stack_empty(nodes_count_stack)) {
-        j = 0;
-        nodes_count = stack_pop(nodes_count_stack);
+        nodes_count = (int)(intptr_t)stack_pop(nodes_count_stack);
         *(*columnSizes+j) =  nodes_count;
         int *nums = (int *)malloc(sizeof(int) * nodes_count);
-        for(i = nodes_count-1; i > 0; i--) {
-            nums[i] = (int)stack_pop(vals_stack);
+        for(i = nodes_count-1; i >= 0; i--) {
+            nums[i] = (int)(intptr_t)stack_pop(vals_stack);
         }
         return_arrays[j] = nums;
         j++;
@@ -151,20 +156,26 @@ int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize
 
 int main() {
     struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
-    root->val = 0;
+    root->val = 1;
     struct TreeNode *node1_1 = (struct TreeNode *)malloc(sizeof(struct TreeNode));
-    node1_1->val = 1;
+    node1_1->val = 2;
     struct TreeNode *node1_2 = (struct TreeNode *)malloc(sizeof(struct TreeNode));
-    node1_2->val = 2;
+    node1_2->val = 3;
     root->left = node1_1;
     root->right = node1_2;
+    node1_1->left = NULL;
+    node1_1->right = NULL;
+    node1_2->left = NULL;
+    node1_2->right = NULL;
 
     int returnSize = 0;
-    int **columnSizes;
+    int *columnSizes = (int *)malloc(sizeof(int));
+    int **return_array = levelOrderBottom(root, &columnSizes, &returnSize);
 
-    levelOrderBottom(root, columnSizes, &returnSize);
-
-    printf("%d", returnSize);
+    assert(returnSize == 2);
+    assert(return_array[0][0] = 1);
+    assert(return_array[1][0] = 2);
+    assert(return_array[1][1] = 3);
 
     return 0;
 }
