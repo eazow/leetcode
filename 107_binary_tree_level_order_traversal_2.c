@@ -113,7 +113,6 @@ int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize
         return NULL;
     }
 
-
     Queue *queue = queue_create();
     Stack *vals_stack = stack_create();
     Stack *nodes_count_stack = stack_create();
@@ -178,9 +177,9 @@ int main() {
     int **return_array = levelOrderBottom(root, &columnSizes, &returnSize);
 
     assert(returnSize == 2);
-    assert(return_array[0][0] = 1);
-    assert(return_array[1][0] = 2);
-    assert(return_array[1][1] = 3);
+    assert(return_array[0][0] == 2);
+    assert(return_array[0][1] == 3);
+    assert(return_array[1][0] == 1);
 
     return 0;
 }
