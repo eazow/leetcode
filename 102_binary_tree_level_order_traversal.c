@@ -106,7 +106,7 @@ void queue_destroy(Queue *queue) {
  * The sizes of the arrays are returned as *columnSizes array.
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
-int **levelOrderBottom(struct TreeNode *root, int **columnSizes, int *returnSize) {
+int **levelOrder(struct TreeNode *root, int **columnSizes, int *returnSize) {
     if(root == NULL) {
         *returnSize = 0;
         *columnSizes = NULL;
@@ -174,7 +174,7 @@ int main() {
 
     int returnSize = 0;
     int *columnSizes = (int *)malloc(sizeof(int));
-    int **return_array = levelOrderBottom(root, &columnSizes, &returnSize);
+    int **return_array = levelOrder(root, &columnSizes, &returnSize);
 
     assert(returnSize == 2);
     assert(return_array[0][0] == 1);
