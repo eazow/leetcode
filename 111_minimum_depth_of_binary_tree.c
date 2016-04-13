@@ -12,7 +12,14 @@ struct TreeNode {
 int minDepth(struct TreeNode* root) {
     if(root == NULL)
         return 0;
-    return min(minDepth(root->left), minDepth(root->right))+1;
+    if(root->left == NULL)
+        return minDepth(root->right)+1;
+    if(root->right == NULL)
+        return minDepth(root->left)+1;
+
+    int lDepth = minDepth(root->left);
+    int rDepth = minDepth(root->right);
+    return min(lDepth, rDepth)+1;
 }
 
 int main() {
@@ -25,7 +32,7 @@ int main() {
     left->left = NULL;
     left->right = NULL;
 
-    assert(minDepth(root) == 1);
+    assert(minDepth(root) == 2);
 
     return 0;
 }
