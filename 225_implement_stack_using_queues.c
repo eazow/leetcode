@@ -52,7 +52,6 @@ void queueDestroy(Queue *queue) {
 
 /* Create a stack */
 void stackCreate(Stack *stack, int maxSize) {
-   stack = (Stack *)malloc(sizeof(Stack));
    stack->queue1 = queueCreate(maxSize);
    stack->queue2 = queueCreate(maxSize);
 }
@@ -73,6 +72,12 @@ void stackPop(Stack *stack) {
             queuePush(stack->queue2, element);
         }
         queuePop(stack->queue1);
+    }
+    else if(queueEmpty(stack->queue1)) {
+        while(queueSize(stack->queue2) > 1) {
+            queuePush(stack->queue1, queuePop(stack->queue2));
+        }
+        queuePop(stack->queue2);
     }
 }
 
