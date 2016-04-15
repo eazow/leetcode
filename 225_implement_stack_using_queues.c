@@ -26,22 +26,15 @@ int queueEmpty(Queue *queue) {
     return queue->head == queue->tail;
 }
 
-void queueEnlarge(Queue *queue) {
-}
-
 int queueSize(Queue *queue) {
     return queue->tail-queue->head;
 }
 
 void queuePush(Queue *queue, int element) {
-    if(queue->tail>=queue->size)
-        queueEnlarge(queue);
     queue->base[queue->tail++] = element;
 }
 
 int queuePop(Queue *queue) {
-    if(queueEmpty(queue))
-        return 0;
     return queue->base[queue->head++];
 }
 
@@ -118,18 +111,20 @@ int stackSize(Stack *stack) {
 void stackDestroy(Stack *stack) {
     queueDestroy(stack->queue1);
     queueDestroy(stack->queue2);
-    free(stack);
 }
 
 int main() {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
     stackCreate(stack, 100);
 
+    assert(stackEmpty(stack) == 1);
     stackPush(stack, 1);
     assert(stackSize(stack) == 1);
     assert(stackEmpty(stack) == 0);
     assert(stackTop(stack) == 1);
     stackPop(stack);
     assert(stackEmpty(stack) == 1);
+
+    free(stack);
     return 0;
 }
