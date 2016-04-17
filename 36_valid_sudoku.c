@@ -1,12 +1,15 @@
 #include <assert.h>
+#include <stdio.h>
 
 int isValidSudoku(char** board, int boardRowSize, int boardColSize) {
     int row = 0, col = 0;
-
+    
+    printf("%c ", board[0][0]);
     for(row = 0; row < boardRowSize; row++) {
         int statics[10] = {0};
         for(col = 0; col < boardColSize; col++) {
             int num = board[row][col]-'0';
+            printf("%c ", board[row][col]);
             if(num >= 0 && num <=9) {
                 statics[num]++;
                 if(statics[num] > 1)
@@ -26,6 +29,7 @@ int isValidSudoku(char** board, int boardRowSize, int boardColSize) {
             }
         }
     }
+    return 1;
 
     for(row = 0; row < boardRowSize; row+=3) {
         for(col = 0; col < boardColSize; col+=3) {
