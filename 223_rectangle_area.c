@@ -23,7 +23,7 @@ int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
         return area1 + area2;
     if(A>=E && B>=F && C<=G && D<=H)
         return area2;
-    if(E>=A && F>=B && G>=C && H>=D)
+    if(E>=A && F>=B && G<=C && H<=D)
         return area1;
 
     int nums1[4] = {A, C, E, G};
@@ -38,6 +38,7 @@ int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
 
 int main() {
     assert(computeArea(-3, 0, 3, 4, 0, -1, 9, 2) == 45);
+    assert(computeArea(-2, -2, 2, 2, 1, 1, 3, 3) == 19);
 
     return 0;
 }
