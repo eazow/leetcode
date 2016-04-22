@@ -3,6 +3,9 @@
 #include <string.h>
 
 int containsNearbyDuplicate(int* nums, int numsSize, int k) {
+    if(nums==NULL || numsSize == 0 || k<=0)
+        return 0;
+
     int min = nums[0], max = nums[0];
 
     int i = 0;
@@ -14,7 +17,7 @@ int containsNearbyDuplicate(int* nums, int numsSize, int k) {
     }
 
     int* hashmap = (int *)malloc(sizeof(int) * (max-min+1));
-    memset(hashmap, -1, max-min+1);
+    memset(hashmap, -1, sizeof(int) *(max-min+1));
     for(i = 0; i < numsSize; i++) {
         int num = nums[i];
         if(hashmap[num-min] == -1)
