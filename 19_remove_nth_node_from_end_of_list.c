@@ -8,18 +8,19 @@ struct ListNode {
 
 struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
     struct ListNode* p1 = head;
-    struct ListNode* p2 = (struct ListNode*)malloc(sizeof(struct ListNode));
+    struct ListNode* newHead = (struct ListNode*)malloc(sizeof(struct ListNode));
+    struct ListNode* p2 = newHead;
     p2->next = head;
 
     for(; p1 != NULL; p1=p1->next, n--) {
-        if(n < 0)
+        if(n <= 0)
             p2 = p2->next;
     }
     struct ListNode* temp = p2->next;
     p2->next = p2->next->next;
     free(temp);
 
-    return p2->next;
+    return newHead->next;
 }
 
 int main() {
