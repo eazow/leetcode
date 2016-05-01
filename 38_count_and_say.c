@@ -11,12 +11,15 @@ char* countAndSay(int n) {
     char pre = s[0];
     char cur;
     char* statistic = (char*)malloc(sizeof(char) * (2 * strlen + 2));
+    int j = 0;
     while(++s) {
         cur = s;
         if(cur == pre)
             count++;
         else {
             pre = *s;
+            statistic[j++] = '0' + count;
+            statistic[j++] = '0' + pre;
         }
     }
 
