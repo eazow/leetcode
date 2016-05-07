@@ -10,7 +10,6 @@ struct TreeNode {
 };
 
 char* stringAdd(char* str, int val) {
-    printf("stringAdd: %s %d\n", str, val);
     char temp[10];
     if(strlen(str) == 0)
         sprintf(temp, "%d", val);
@@ -20,20 +19,18 @@ char* stringAdd(char* str, int val) {
     char *newStr = (char*)malloc(sizeof(char)*100);
     strcpy(newStr, str);
     strcat(newStr, temp);
-    printf("%s\n", newStr);
     
-    puts("out stringAdd");
     return newStr;
 }
 
 void traverse(struct TreeNode *node, char *str) {
-    printf("traverse: %d\n", node->val);
-    if(node->left)
+    if(node->left!=NULL)
         traverse(node->left, stringAdd(str, node->val));
-    if(node->right)   
+    if(node->right!=NULL)   
         traverse(node->right, stringAdd(str, node->val));
     if(node->left==NULL && node->right==NULL)
         printf("%s\n", stringAdd(str, node->val));
+    printf("out traverse: %d %s\n", node->val, str);
 }
 
 /**
@@ -60,12 +57,12 @@ int main() {
     node1_2->left = NULL;
     node1_2->right = NULL;
 
-    struct TreeNode *node2_1 = (struct TreeNode *)calloc(1, sizeof(struct TreeNode *));
+    struct TreeNode *node2_1 = (struct TreeNode *)malloc(sizeof(struct TreeNode *));
     node2_1->val = 5;
-    node2_1->left = NULL;
-    node2_1->right = NULL;
     node1_1->left = NULL;
     node1_1->right = node2_1;
+    node2_1->left = NULL;
+    node2_1->right = NULL;
 
     int returnSize = 0;
     binaryTreePaths(root, &returnSize); 
