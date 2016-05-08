@@ -23,13 +23,15 @@ char* stringAdd(char* str, int val) {
     return newStr;
 }
 
-void traverse(struct TreeNode *node, char *str) {
+void traverse(struct TreeNode *node, char* str, char** paths, int* returnSize) {
     if(node->left!=NULL)
-        traverse(node->left, stringAdd(str, node->val));
+        traverse(node->left, stringAdd(str, node->val), paths, returnSize);
     if(node->right!=NULL)   
-        traverse(node->right, stringAdd(str, node->val));
-    if(node->left==NULL && node->right==NULL)
+        traverse(node->right, stringAdd(str, node->val), paths, returnSize);
+    if(node->left==NULL && node->right==NULL) {
         printf("%s\n", stringAdd(str, node->val));
+        (*returnSize)++;
+    }
     printf("out traverse: %d %s\n", node->val, str);
 }
 
@@ -38,7 +40,9 @@ void traverse(struct TreeNode *node, char *str) {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 char** binaryTreePaths(struct TreeNode* root, int* returnSize) {
-    traverse(root, "");
+    char** paths = (char **)malloc(sizeof(char *)*100);
+
+    traverse(root, "", paths, returnSize);
     
     return NULL;
 }
