@@ -32,7 +32,6 @@ void traverse(struct TreeNode *node, char* str, char** paths, int* returnSize) {
         printf("%s\n", stringAdd(str, node->val));
         (*returnSize)++;
     }
-    printf("out traverse: %d %s\n", node->val, str);
 }
 
 /**
