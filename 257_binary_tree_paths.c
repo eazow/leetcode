@@ -29,7 +29,7 @@ void traverse(struct TreeNode *node, char* str, char** paths, int* returnSize) {
     if(node->right!=NULL)   
         traverse(node->right, stringAdd(str, node->val), paths, returnSize);
     if(node->left==NULL && node->right==NULL) {
-        printf("%s\n", stringAdd(str, node->val));
+        *(paths+*returnSize) = stringAdd(str, node->val);
         (*returnSize)++;
     }
 }
@@ -68,7 +68,10 @@ int main() {
     node2_1->right = NULL;
 
     int returnSize = 0;
-    binaryTreePaths(root, &returnSize); 
-
+    char** paths = binaryTreePaths(root, &returnSize); 
+    assert(returnSize == 2);
+    assert(strcmp(paths[0], "1->2->5") == 0);
+    assert(strcmp(paths[1], "1->3") == 0);
+    
     return 0;
 }
