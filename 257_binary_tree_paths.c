@@ -39,11 +39,13 @@ void traverse(struct TreeNode *node, char* str, char** paths, int* returnSize) {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 char** binaryTreePaths(struct TreeNode* root, int* returnSize) {
-    char** paths = (char **)malloc(sizeof(char *)*100);
+    if(root == NULL)
+        return NULL;
 
+    char** paths = (char **)malloc(sizeof(char *)*100);
     traverse(root, "", paths, returnSize);
     
-    return NULL;
+    return paths;
 }
 
 int main() {
