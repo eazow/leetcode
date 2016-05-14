@@ -17,6 +17,10 @@ int isPalindrome(struct ListNode* head) {
     }
 }
 
+struct ListNode *reverseList(struct ListNode *head) {
+
+}
+
 int main() {
 
     return 0;
