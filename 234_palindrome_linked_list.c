@@ -39,9 +39,8 @@ int isPalindrome(struct ListNode* head) {
     struct ListNode *tail = NULL;
     if(fast == NULL)
         tail = reverseList(slow);
-    else
+    else 
         tail = reverseList(slow->next);
-
     int j = 0;
     struct ListNode *node1 = head;
     struct ListNode *node2 = tail;
@@ -50,6 +49,7 @@ int isPalindrome(struct ListNode* head) {
             return 0;
         node1 = node1->next;
         node2 = node2->next;
+        j++;
     }
     return 1;
 }
