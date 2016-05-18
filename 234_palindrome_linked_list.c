@@ -19,6 +19,7 @@ struct ListNode *reverseList(struct ListNode *head) {
         cur = next;
         next = next->next;
     }
+    cur->next = pre;
     head->next = NULL;
 
     return cur;
@@ -30,7 +31,7 @@ int isPalindrome(struct ListNode* head) {
         return 1;
 
     int i = 0;
-    while(fast!=NULL & fast->next!=NULL) {
+    while(fast!=NULL && fast->next!=NULL) {
         slow = slow->next;
         fast = fast->next->next;
         i++;
@@ -61,12 +62,20 @@ int main() {
     struct ListNode *node2 = (struct ListNode *)malloc(sizeof(struct ListNode *));
     node2->val = 2;
     head->next = node2;
+    node2->next = NULL;
+    assert(isPalindrome(head) == 0);
 
     struct ListNode *node3 = (struct ListNode *)malloc(sizeof(struct ListNode *));
     node3->val = 1;
     node2->next = node3;
     node3->next = NULL;
+    assert(isPalindrome(head) == 1);
 
+    struct ListNode *node4 = (struct ListNode *)malloc(sizeof(struct ListNode *));
+    node4->val = 1;
+    node3->val = 2;
+    node3->next = node4;
+    node4->next = NULL;
     assert(isPalindrome(head) == 1);
 
     return 0;
