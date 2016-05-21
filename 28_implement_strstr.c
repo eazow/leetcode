@@ -1,6 +1,5 @@
 #include <assert.h>
 #include <string.h>
-#include <stdio.h>
 
 int strStr(char* haystack, char* needle) {
     if(haystack==NULL || needle==NULL)
@@ -17,12 +16,14 @@ int strStr(char* haystack, char* needle) {
     for(i=0, j=0;  i < haystackLength; i++) {
         if(haystack[i] == needle[j]) {
             j++;
-            printf("char:%c,i:%d,j:%d\n", haystack[i], i, j);
             if(j == needleLength)
                 return i-j+1;
         }
-        else
+        else {
+            //important, 将i回溯到needle[0]出现的位置
+            i = i-j;
             j = 0;
+        }
     }
     return -1;
 }
