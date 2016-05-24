@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int* sort(int* nums, int numsSize) {
     int *locations = (int *)malloc(sizeof(int) * numsSize);
@@ -9,7 +10,7 @@ int* sort(int* nums, int numsSize) {
 
     for(i = 0; i < numsSize; i++) {
         int sorted = 1;
-        for(; j < numsSize-1; j++) {
+        for(j = 0; j < numsSize-1; j++) {
             if(nums[j] > nums[j+1]) {
                 int temp = nums[j];
                 nums[j] = nums[j+1];
@@ -23,6 +24,10 @@ int* sort(int* nums, int numsSize) {
         if(sorted)
             break;
     }
+    for(i = 0; i < numsSize; i++) {
+        printf("%d ", locations[i]);
+    }
+    puts("");
     return locations;
 }
 
@@ -64,6 +69,13 @@ int main() {
 
     int nums2[3] = {3, 2, 4};
     twoSum(nums2, 3, 6);
+
+    int nums3[3] = {-1,-2,-3};
+    twoSum(nums3, 3, -5);
+
+    int nums4[3] = {5, 75, 25};
+    locations = twoSum(nums4, 3, 100);
+    printf("locations[0]:%d\n", locations[0]);
 
     return 0;
 }
