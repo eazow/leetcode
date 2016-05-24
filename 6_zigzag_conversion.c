@@ -1,7 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 char* filter(char* s, int len) {
     int i = 0;
@@ -16,8 +15,10 @@ char* filter(char* s, int len) {
 }
 
 char* convert(char* s, int numRows) {
+    if(numRows == 1)
+        return s;
     int len = strlen(s);
-    char *statistics = (char *)malloc(sizeof(char)*len*numRows);
+    char *statistics = (char *)malloc(sizeof(char)*(len*numRows));
     int i = 0;
     for(i = 0; i < len*numRows; i++) {
         statistics[i] = '#';
@@ -34,6 +35,7 @@ char* convert(char* s, int numRows) {
                 row = 0;
                 while(row < numRows && sI < len)
                     statistics[(row++)*len+col] = s[sI++];
+                assendOrder = 1;
             }
             else {
                 row = numRows-1;
@@ -63,7 +65,10 @@ char* convert(char* s, int numRows) {
 }
 
 int main() {
-    printf("%s\n", convert("PAYPALISHIRING", 3));
+    assert(strcmp("", convert("", 2)) == 0);
+    assert(strcmp("abc", convert("abc",1))== 0);
+    assert(strcmp("acbd", convert("abcd", 2)) == 0);
+    assert(strcmp("PAHNAPLSIIGYIR", convert("PAYPALISHIRING", 3)) == 0);
 
     return 0;
 }
