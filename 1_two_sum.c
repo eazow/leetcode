@@ -1,12 +1,11 @@
 #include <assert.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int* sort(int* nums, int numsSize) {
-    int *locations = (int *)malloc(sizeof(int) * numsSize);
+    int *numsLocations = (int *)malloc(sizeof(int) * numsSize);
     int i = 0, j = 0;
     for(i = 0; i < numsSize; i++)
-        locations[i] = i;
+        numsLocations[i] = i;
 
     for(i = 0; i < numsSize; i++) {
         int sorted = 1;
@@ -16,19 +15,15 @@ int* sort(int* nums, int numsSize) {
                 nums[j] = nums[j+1];
                 nums[j+1] = temp;
                 sorted = 0;
-                temp = locations[j];
-                locations[j] = locations[j+1];
-                locations[j+1] = temp;
+                temp = numsLocations[j];
+                numsLocations[j] = numsLocations[j+1];
+                numsLocations[j+1] = temp;
             }
         }
         if(sorted)
             break;
     }
-    for(i = 0; i < numsSize; i++) {
-        printf("%d ", locations[i]);
-    }
-    puts("");
-    return locations;
+    return numsLocations;
 }
 
 int find(int* nums, int num, int start, int end) {
@@ -46,17 +41,18 @@ int find(int* nums, int num, int start, int end) {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* twoSum(int* nums, int numsSize, int target) {
-    int *sortLocations = sort(nums, numsSize);
+    int *numsLocations = sort(nums, numsSize);
     int i = 0;
     int num;
     int *locations = (int *)malloc(sizeof(int) * 2);
     int j;
-    for(; i < numsSize; i++) {
+    for(i = 0; i < numsSize; i++) {
         num = nums[i];
-        if((j=find(nums, target-num, i+1, numsSize-1)) >= 0) 
-            locations[1] = sortLocations[j];
-        locations[0] = sortLocations[i];
-        return locations;
+        if((j=find(nums, target-num, i+1, numsSize-1)) >= 0) {
+            locations[1] = numsLocations[j];
+            locations[0] = numsLocations[i];
+            return locations;
+        }
     }
     return NULL;
 }
@@ -67,15 +63,10 @@ int main() {
     assert(locations[0] == 0);
     assert(locations[1] == 1);
 
-    int nums2[3] = {3, 2, 4};
-    twoSum(nums2, 3, 6);
-
-    int nums3[3] = {-1,-2,-3};
-    twoSum(nums3, 3, -5);
-
-    int nums4[3] = {5, 75, 25};
-    locations = twoSum(nums4, 3, 100);
-    printf("locations[0]:%d\n", locations[0]);
+    int nums2[3] = {5, 75, 25};
+    locations = twoSum(nums2, 3, 100);
+    assert(locations[0] == 2);
+    assert(locations[1] == 1);
 
     return 0;
 }
