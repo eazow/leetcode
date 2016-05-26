@@ -1,6 +1,5 @@
 #include <assert.h>
 #include <limits.h>
-#include <stdio.h>
 
 int myAtoi(char* str) {
     while(*str == ' ')
