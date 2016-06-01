@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 int bulbSwitch(int n) {
+    /*
+     * Time Limit Exceeded
+     *
     int* nums = (int *)calloc(sizeof(int), n);
     int i, j, num;
     for(i = 1; i <= n; i++)
@@ -13,6 +16,12 @@ int bulbSwitch(int n) {
     for(i = 0; i < n; i++)
         if(nums[i] == 1)
             count++;
+    */
+    int i = 1, count = 0;
+    while(i*i <= n) {
+        count++;
+        i++;
+    }
 
     return count;
 }
