@@ -48,5 +48,9 @@ int main() {
     int returnSize = 0;
     int* vals = inorderTraversal(root, &returnSize);
     assert(returnSize == 3);
+    assert(vals[0] == 1);
+    assert(vals[1] == 3);
+    assert(vals[2] == 2);
+
     return 0;
 }
