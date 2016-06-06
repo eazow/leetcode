@@ -13,7 +13,7 @@ int maxProduct(char** words, int wordsSize) {
         int wordLen = strlen(word);
         int val = 0;
         for(j = 0; j < wordLen; j++)
-            val |= 1 << (word[i]-'a');
+            val |= 1 << (word[j]-'a');
         vals[i] = val;
     }
     int product = 0;
