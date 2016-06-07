@@ -7,28 +7,28 @@ struct TreeNode {
     struct TreeNode *right;
 };
 
-struct Stack {
+struct List {
     int* vals;
     int size;
     int top;
 };
 
-void inorderTraversal(struct TreeNode* node, struct Stack* stack) {
+void inorderTraversal(struct TreeNode* node, struct List* list) {
     if(node->left != NULL)
-        inorderTraversal(node->left, stack);
-    stack->vals[stack->top++] = node->val;
+        inorderTraversal(node->left, list);
+    list->vals[list->top++] = node->val;
     if(node->right != NULL)
-        inorderTraversal(node->left, stack);
+        inorderTraversal(node->right, list);
 }
 
 int kthSmallest(struct TreeNode* root, int k) {
-    struct Stack* stack = (struct Stack *)malloc(sizeof(struct Stack));
-    int size = 1000;
-    stack->vals = (int *)malloc(sizeof(int) * size);
-    stack->size = size;
-    stack->top = 0;
-    inorderTraversal(root, stack);
-    return stack->vals[k-1];
+    struct List* list = (struct List *)malloc(sizeof(struct List));
+    int size = 10000;
+    list->vals = (int *)malloc(sizeof(int) * size);
+    list->size = size;
+    list->top = 0;
+    inorderTraversal(root, list);
+    return list->vals[k-1];
 }
 
 int main() {
