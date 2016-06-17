@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SIZE 200
+#define SIZE 10000
 
 void addParenthesisRecursively(int left, int right, char* str, char**result, int* returnSize, int n) {
     if((left == 0) && (right == 0))
@@ -17,7 +17,7 @@ void addParenthesisRecursively(int left, int right, char* str, char**result, int
         if(right > 0) {
             strcpy(newStr, str);
             addParenthesisRecursively(left, right-1, strcat(newStr, ")"), result, returnSize, n);
-       }
+        }
     }
 }
 
@@ -34,9 +34,8 @@ char** generateParenthesis(int n, int* returnSize) {
 int main() {
     int returnSize = 0;
     char** result = generateParenthesis(3, &returnSize);
-    printf("%s\n", result[0]);
-    printf("%s\n", result[1]);
-    assert(returnSize == 2);
+    assert(strcmp("((()))", result[0]) == 0);
+    assert(returnSize == 5);
 
     return 0;
 }
