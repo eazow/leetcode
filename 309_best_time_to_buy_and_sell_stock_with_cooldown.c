@@ -8,7 +8,7 @@ int maxProfit(int* prices, int pricesSize) {
     int* buy = (int *)malloc(sizeof(int) * pricesSize);
     int* sell = (int *)malloc(sizeof(int) * pricesSize);
     buy[0] = -prices[0];
-    buy[1] = -prices[1];
+    buy[1] = prices[1]>prices[0]?-prices[0]:-prices[1];
     sell[0] = 0;
     sell[1] = prices[1]-prices[0];
     sell[1] = sell[1]>0?sell[1]:0;
