@@ -16,7 +16,7 @@ int* robRecursively(struct TreeNode* node) {
     int* right = robRecursively(node->right);
     int* result = (int *)calloc(2, sizeof(int));
     result[0] = node->val+left[1]+right[1];
-    result[1] = left[0] + right[0];
+    result[1] = max(left[0]+right[0], left[1]+right[1]);
     return result;
 }
 
