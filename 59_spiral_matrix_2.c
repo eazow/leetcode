@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int** generateMatrix(int n) {
     int** nums = (int**)malloc(sizeof(int *) * n);
@@ -11,7 +12,7 @@ int** generateMatrix(int n) {
     int j = 0;
     int k = 1;
     int step = 0;
-    while(k <= n*n) {
+    while(k <= n*n && step<n) {
         //left to right
         while(j < n-step-1) 
             nums[i][j++] = k++;
@@ -31,7 +32,9 @@ int** generateMatrix(int n) {
 }
 
 int main() {
-    int** nums = generateMatrix(3);
+    int** nums = generateMatrix(4);
+    printf("%d\n", nums[3][3]);
+
 
     return 0;
 }
