@@ -1,6 +1,7 @@
 #include <assert.h>
 
 int getSum(int a, int b) {
+    int carry = 0;
     return a+b;
 }
 
