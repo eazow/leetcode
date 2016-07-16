@@ -16,7 +16,7 @@ void quickSort(int* nums, int low, int high) {
         }
         nums[left] = key;
         quickSort(nums, low, left-1);
-        quickSort(nums, low+1, high);
+        quickSort(nums, left+1, high);
     }
 }
 
