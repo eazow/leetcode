@@ -7,8 +7,12 @@ struct TreeNode {
 };
 
 int sumRecursively(struct TreeNode* node, int sum) {
-    if(node->left==NULL && node->right==NULL)
+    if(node == NULL)
+        return sum;
+    else
         sum = sum*10+node->val;
+    sum = sumRecursively(node->left, sum);
+    sum = sumRecursively(node->right, sum);
     return sum;
 }
 
