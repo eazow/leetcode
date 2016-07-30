@@ -4,9 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-
+        subsets = [[]]
         for num in nums:
-            pass
+            tmpList = subsets
 
 nums = [1,2,3]
 Solution().subsets(nums)
