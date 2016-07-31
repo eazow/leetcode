@@ -6,9 +6,9 @@ class Solution(object):
         """
         subsets = [[]]
         for num in nums:
-            tmpList = subsets
+            tmpLists = subsets
+            for tmpList in tmpLists:
+                tmpList.add(num)
 
 nums = [1,2,3]
 Solution().subsets(nums)
-
-
