@@ -4,9 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        subsets = [[]]
+        subsetsList = [[]]
         for num in nums:
-            tmpLists = subsets
+            tmpLists = subsetsList
             for tmpList in tmpLists:
                 tmpList.add(num)
 
