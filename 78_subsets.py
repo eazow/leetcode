@@ -1,3 +1,5 @@
+import copy
+
 class Solution(object):
     def subsets(self, nums):
         """
@@ -6,9 +8,12 @@ class Solution(object):
         """
         subsetsList = [[]]
         for num in nums:
-            tmpLists = subsetsList
+            tmpLists = copy.deepcopy(subsetsList)
             for tmpList in tmpLists:
-                tmpList.add(num)
+                tmpList.append(num)
+                subsetsList.append(tmpList)
+        return subsetsList
+
 
 nums = [1,2,3]
-Solution().subsets(nums)
+print Solution().subsets(nums)
