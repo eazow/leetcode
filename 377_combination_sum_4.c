@@ -1,5 +1,7 @@
 #include <assert.h>
+#include <stdlib.h>
 
+/**
 int combinationSum4(int* nums, int numsSize, int target) {
     if(target == 0)
         return 1;
@@ -11,7 +13,11 @@ int combinationSum4(int* nums, int numsSize, int target) {
     }
     return result;
 }
+*/
 
+int combinationSum4(int* nums, int numsSize, int target) {
+    
+}
 int main() {
     int nums[3] = {1,2,3};
     assert(combinationSum4(nums, 3, 4) == 7);
