@@ -16,7 +16,14 @@ int combinationSum4(int* nums, int numsSize, int target) {
 */
 
 int combinationSum4(int* nums, int numsSize, int target) {
-    
+    int* results = (int *)malloc(sizeof(int) * (target+1));
+    int i = 0;
+    results [0] = 1;
+    for(i = 0; i <= target; i++)
+        results[i] = 0;
+    for(i = 0; i < numsSize; i++) {
+        
+    }
 }
 int main() {
     int nums[3] = {1,2,3};
