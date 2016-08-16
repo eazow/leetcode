@@ -6,25 +6,41 @@ class Solution(object):
         :rtype List[List[int]]
         """
         nums = []
+        indexes = []
         returnLists = []
         sum = 0
-        for i in range(len(candidates)):
-            while True:
-                if sum + candidates[i] > target:
-                    if len(nums) > 0:
-                        sum -= nums.pop()
-                    break
-                elif sum + candidates[i] == target:
-                    newNums = nums[:]
-                    newNums.append(candidates[i])
-                    returnLists.append(newNums)
-                    if len(nums) > 0:
-                        sum -= nums.pop()
-                    break
+        i = 0
+        candidates.sort()
+        while True:
+            while i >= len(candidates):
+                if len(nums) == 0:
+                    return returnLists
+                sum -= nums.pop()
+                i = indexes.pop()+1
+
+
+            if sum + candidates[i] < target:
+                nums.append(candidates[i])
+                indexes.append(i)
+                sum += candidates[i]
+
+            elif sum + candidates[i] > target:
+                if len(nums) > 0:
+                    sum -= nums.pop()
+                    i = indexes.pop()+1
                 else:
-                    nums.append(candidates[i])
-                    sum += candidates[i]
+                    return returnLists
+            elif sum + candidates[i] == target:
+                newNums = nums[:]
+                newNums.append(candidates[i])
+                returnLists.append(newNums)
+                if len(nums) > 0:
+                    sum -= nums.pop()
+                    i = indexes.pop()+1
+                else:
+                    i += 1
 
-        return returnLists
 
-print Solution().combinationSum([2,3,4], 7)
+assert Solution().combinationSum([2,3,4], 7)==[[2,2,3], [3,4]]
+assert Solution().combinationSum([2,3,6,7], 7)==[[2,2,3], [7]]
+assert Solution().combinationSum([2], 1) == []
