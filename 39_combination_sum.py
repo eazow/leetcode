@@ -17,13 +17,10 @@ class Solution(object):
                     return returnLists
                 sum -= nums.pop()
                 i = indexes.pop()+1
-
-
             if sum + candidates[i] < target:
                 nums.append(candidates[i])
                 indexes.append(i)
                 sum += candidates[i]
-
             elif sum + candidates[i] > target:
                 if len(nums) > 0:
                     sum -= nums.pop()
