@@ -31,6 +31,13 @@ int search(int* nums, int numsSize, int target) {
 
 int main() {
     int nums[5] = {3,4,5,1,2};
+    assert(search(nums, 5, 3) == 1);
+
+    int nums2[5] = {1,3,1,1,1};
+    assert(search(nums2, 5, 3) == 1);
+
+    int nums3[3] = {5,1,3};
+    assert(search(nums3, 3, 3) == 1);
 
     return 0;
 }
