@@ -22,12 +22,14 @@ int search(int* nums, int numsSize, int target) {
                 right = middle - 1;
         }
         //4,5,1,2,3
-        else {
+        else if(nums[left] > nums[middle]){
             if(target > nums[middle] && target < nums[right])
                 left = middle + 1;
             else 
                 right = middle - 1;
         }
+        else
+            right--;
     }
     return 0;
 }
