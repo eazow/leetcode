@@ -7,9 +7,13 @@
  */
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     int i = 0, j = i+1;
+    int* returnNums = NULL;
     for(i=0, j=i+1; i < numsSize-1; j++) {
         if(nums[i] + nums[j] == target) {
-            return;
+            returnNums = (int *)malloc(sizeof(int) * 2);
+            returnNums[0] = i+1;
+            returnNums[1] = j+1;
+            return returnNums;
         }
         else if(nums[i] + nums[j] < target) {
             j++;
@@ -17,12 +21,17 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
                 i++;
         }
         else
-            return NULL;    
+            break;  
     }
+    return returnNums;
 }
 
 int main() {
-
+    int nums[3] = {2,3,4};
+    int returnSize = 0;
+    int* returnNums = twoSum(nums, 3, 6, &returnSize);
+    assert(returnNums[0] == 2);
+    assert(returnNums[1] == 4);
 
     return 0;
 }
