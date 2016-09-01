@@ -5,6 +5,7 @@
  * Return an array of size *returnSize.
  * Note: The returned array must be malloced, assume caller calls free().
  */
+/**
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     int i = 0, j = i+1;
     int* returnNums = NULL;
@@ -13,15 +14,42 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
             returnNums = (int *)malloc(sizeof(int) * 2);
             returnNums[0] = i+1;
             returnNums[1] = j+1;
+            *returnSize = 2;
             return returnNums;
         }
         else if(nums[i] + nums[j] < target) {
             j++;
-            if(j == numsSize)
+            if(j == numsSize) {
                 i++;
+                j = i+1;
+            }
         }
-        else
-            break;  
+        else {
+            i++;
+            j = i+1;
+        }
+    }
+    return returnNums;
+}
+*/
+
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int left = 0, right = numsSize-1;
+    int* returnNums = NULL;
+    int sum = 0;
+    while(left < right) {
+        sum = nums[left]+nums[right];
+        if(sum == target) {
+            returnNums = (int *)malloc(sizeof(int)*2);
+            returnNums[0] = left+1;
+            returnNums[1] = right+1;
+            *returnSize = 2;
+            break;
+        }
+        else if(sum > target)
+            right--;
+        else 
+            left++;
     }
     return returnNums;
 }
