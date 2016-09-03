@@ -26,6 +26,8 @@
 |22|[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)|Medium|[Generate Parentheses](http://www.jianshu.com/p/ff0ef6914107) |
 |309|[Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)| Medium |[Best Time to Buy and Sell Stock with Cooldown](http://www.jianshu.com/p/1fc3848099ec)|
 |377|[Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)|Medium|[Combination Sum IV](http://www.jianshu.com/p/6dcb2c66da36)|
+|39|[Combination Sum](https://leetcode.com/problems/combination-sum/)| Medium | [Combination Sum](http://www.eazow.com/2016/08/19/LeetCode-39-Combination-Sum/)|
+|167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)| Medium | [Two Sum II - Input array is sorted](http://www.eazow.com/2016/09/01/LeetCode-167-Two-Sum-II-Input-array-is-sorted/)|
 
 ##### 排序
 按照难易程度由低到高排序
@@ -66,6 +68,10 @@ https://github.com/eazow/leetcode
 309 Best Time to Buy and Sell Stock with Cooldown
 
 2016.08.20
-377. Combination Sum IV
+377 Combination Sum IV
+
+2016.09.01
+39 Combination Sum 
+167 Two Sum II - Input array is sorted
 
 <small>持续更新中...</small>
