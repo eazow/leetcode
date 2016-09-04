@@ -8,6 +8,8 @@ struct TreeNode {
 };
 
 void flatten(struct TreeNode* root) {
+    if(root==NULL || (root->left==NULL&&root->right==NULL))
+        return;
 
 }
 
