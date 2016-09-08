@@ -1,13 +1,13 @@
 #include <assert.h>
 
 int rangeBitwiseAnd(int m, int n) {
-    int bits = 1;
+    int bits = 0;
     while(m != n) {
         m >>= 1;
         n >>= 1;
-        bits <<= 1;
+        bits++;
     }
-    return m*bits;
+    return m<<bits;
 }
 
 /**
