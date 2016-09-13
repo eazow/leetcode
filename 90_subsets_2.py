@@ -6,3 +6,7 @@ class Solution(object):
         """
         result = [[]]
         sort(nums)
+        i = 0
+        while i < len(nums):
+            num = nums[i]
+             
