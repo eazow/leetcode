@@ -1,5 +1,4 @@
 #include <assert.h>
-#include <stdio.h>
 
 int hammingDistance(int x, int y) {
     int result = x^y;
@@ -10,7 +9,6 @@ int hammingDistance(int x, int y) {
 	    distance++;
 	
 	result >>= 1;
-	printf("%d\n", result);
     }
 
     return distance;
