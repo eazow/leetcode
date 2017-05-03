@@ -1,9 +1,9 @@
 class Solution(object):
     def arrayPairSum(self, nums):
         """
-    :type nums: List[int]
-    :rtype: int
-    """
+        :type nums: List[int]
+        :rtype: int
+        """
         nums.sort()
         i = 0
         sum = 0
