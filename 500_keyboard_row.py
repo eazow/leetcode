@@ -8,7 +8,7 @@ class Solution(object):
         """
         result = []
         for word in words:
-            if re.match("(?i)^(([qwertyuiop]+)|([asdfghjkl]*)|([zxcvbnm]+))$", word):
+            if re.match("(?i)^(([qwertyuiop]+)|([asdfghjkl]+)|([zxcvbnm]+))$", word):
                 result.append(word)
         return result
 
