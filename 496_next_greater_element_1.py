@@ -5,6 +5,23 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        numsStack = []
+        numsMap = {}
+
+        for num in nums:
+            while len(numsStack) and (numsStack[-1] < num):
+                numsMap[numsStack.pop()] = num
+            numsStack.append(num)
+
+        result = []
+        for findNum in findNums:
+            result.append(numsMap.get(findNum, -1))
+
+        return result
+
+
+"""
+    def nextGreaterElement(self, findNums, nums):
         result = []
         for findNum in findNums:
             numsCount = len(nums)
@@ -25,6 +42,7 @@ class Solution(object):
                 result.append(-1)
 
         return result
+"""
 
 assert Solution().nextGreaterElement([4,1,2], [1,3,4,2]) == [-1,3,-1]
 assert Solution().nextGreaterElement([2,4], [1,2,3,4]) == [3,-1]
