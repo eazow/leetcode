@@ -1,8 +1,6 @@
 class Solution(object):
     def detectCapitalUse(self, word):
         length = len(word)
-        if length == 0:
-            return True
 
         firstIsCapital = word[0].isupper()
         i = 1
