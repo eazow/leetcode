@@ -12,4 +12,5 @@ class Solution(object):
 
         return chr(difference ^ ord(t[-1]))
 
-assert Solution().findTheDifference("abcd", "abcde")  == "e"
+assert Solution().findTheDifference("abcd", "abcde") == "e"
+assert Solution().findTheDifference("abcd", "dceba") == "e"
