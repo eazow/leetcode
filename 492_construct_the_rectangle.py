@@ -12,3 +12,4 @@ class Solution(object):
         return [area/width, width]
 
 Solution().constructRectangle(4) == [2,2]
+Solution().constructRectangle(10) == [5,2]
