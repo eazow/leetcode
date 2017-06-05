@@ -17,8 +17,7 @@ class Solution(object):
             self.result += str(t.val)
             if t.left or t.right:
                 self.result += "("
-            if t.left:
-                self.tree2str(t.left)
+            self.tree2str(t.left)
             if t.left or t.right:
                 self.result += ")"
             if t.right:
