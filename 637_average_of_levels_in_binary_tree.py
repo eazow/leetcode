@@ -27,7 +27,6 @@ class Solution(object):
         dfs(root, 0)
 
         result = []
-        i = 0
         for i in range(len(sums)):
             result.append(sums[i]/float(nums[i]))
 
