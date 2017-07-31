@@ -10,14 +10,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[float]
         """
-        sum_n_array = []
+        sums = []
+        nums = []
         def dfs(node, level):
             if node:
-                if len(sum_n_array) <= level:
-                    sum_n_array.append([0,0])
+                if len(sums) <= level:
+                    sums.append(0)
+                    nums.append(0)
 
-                sum_n_array[level][0] += node.val
-                sum_n_array[level][1] += 1
+                sums[level] += node.val
+                nums[level] += 1
 
                 dfs(node.left, level+1)
                 dfs(node.right, level+1)
@@ -25,8 +27,9 @@ class Solution(object):
         dfs(root, 0)
 
         result = []
-        for sum_n in sum_n_array:
-            result.append(sum_n[0]/float(sum_n[1]))
+        i = 0
+        for i in range(len(sums)):
+            result.append(sums[i]/float(nums[i]))
 
         return result
 
