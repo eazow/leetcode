@@ -16,10 +16,8 @@ class Solution(object):
         for key in counter:
             if counter[key] % 2 == 0:
                 palindrome_length += counter[key]
-            elif counter[key] > 1:
+            else:
                 palindrome_length += counter[key] - 1
-                single = True
-            elif counter[key] == 1:
                 single = True
 
         if single:
