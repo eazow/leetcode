@@ -29,18 +29,19 @@
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)| Medium | [Combination Sum](http://www.eazow.com/2016/08/19/LeetCode-39-Combination-Sum/)|
 |167|[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)| Medium | [Two Sum II - Input array is sorted](http://www.eazow.com/2016/09/01/LeetCode-167-Two-Sum-II-Input-array-is-sorted/)|
 
-##### 排序
+### 排序
 按照难易程度由低到高排序
 
-##### Github
+### Github
 https://github.com/eazow/leetcode
 
-##### 作者
+### 作者
 [Eazow](http://www.eazow.com)
 
-##### 版本
-0.0.1
+### 版本
+0.1
 
+<!--
 ##### 更新日志
 2016.06.01
 347 Top K Frequent Elements
@@ -73,5 +74,5 @@ https://github.com/eazow/leetcode
 2016.09.01
 39 Combination Sum 
 167 Two Sum II - Input array is sorted
-
+-->
 <small>持续更新中...</small>
