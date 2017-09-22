@@ -6,21 +6,16 @@ class TreeNode(object):
 
 class Solution(object):
     def trimBST(self, root, L, R):
-        if root:
-            if root.val == L:
-                root.left = None
-            elif root.val > L:
-                root.left = self.trimBST(root.left, L, R)
-            else:
-                root = self.trimBST(root.right, L, R)
-                return root
+        if root == None:
+            return None
 
-            if root.val == R:
-                root.right = None
-            elif root.val < R:
-                root.right = self.trimBST(root.right, L, R)
-            else:
-                root = self.trimBST(root.left, L, R)
+        if root.val < L:
+            return self.trimBST(root.right, L, R)
+        if root.val > R:
+            return self.trimBST(root.left, L, R)
+
+        root.left = self.trimBST(root.left, L, R)
+        root.right = self.trimBST(root.right, L, R)
 
         return root
 
