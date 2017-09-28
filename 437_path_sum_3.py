@@ -13,15 +13,17 @@ class Solution(object):
         """
         if not root:
             return 0
-        
-        return self.find_paths(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)
+        return self.find_paths_from_node(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)
 
-    def find_paths(self, root, sum):
-        if not root:
+    def find_paths_from_node(self, node, sum):
+        if not node:
             return 0
-        if root.val == sum:
-            return 1 + self.find_paths(root.left, sum - root.val) + self.find_paths(root.right, sum - root.val)
-        return self.find_paths(root.left, sum - root.val) + self.find_paths(root.right, sum - root.val)
+        if node.val == sum:
+            return 1 + self.find_paths_from_node(node.left, sum - node.val) \
+                   + self.find_paths_from_node(node.right, sum - node.val)
+
+        return self.find_paths_from_node(node.left, sum - node.val) \
+               + self.find_paths_from_node(node.right, sum - node.val)
 
 root = TreeNode(10)
 root.left = TreeNode(5)
