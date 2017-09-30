@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution(object):
     def findAnagrams(self, s, p):
         """
@@ -9,15 +11,24 @@ class Solution(object):
         len_p = len(p)
         if len_s < len(p):
             return []
-        i = 0
-        sorted_p = "".join(sorted(p))
+        temp_s = s[0: len_p]
+        counter_s = Counter(temp_s)
+        counter_p = Counter(p)
+
         anagrams = []
-        while i <= len(s)-len(p):
-            temp_s = s[i: i + len(p)]
-            sorted_temp_s = "".join(sorted(temp_s))
-            if sorted_temp_s == sorted_p:
+        if counter_s == counter_p:
+            anagrams.append(0)
+
+        i = 1
+        while i + len_p <= len_s:
+            counter_s[s[i+len_p-1]] += 1
+            counter_s[s[i-1]] -= 1
+            if counter_s[s[i-1]] == 0:
+                del counter_s[s[i-1]]
+            if counter_s == counter_p:
                 anagrams.append(i)
             i += 1
+
         return anagrams
 
 assert Solution().findAnagrams("cbaebabacd", "abc") == [0, 6]
