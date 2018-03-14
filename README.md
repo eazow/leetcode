@@ -39,10 +39,10 @@ https://github.com/eazow/leetcode
 [Eazow](http://www.eazow.com)
 
 ### 版本
-0.2.4.2
+0.2.5.1
 
 ### 日期
-2018.02.28
+2018.03.14
 
 <!--
 ##### 更新日志
