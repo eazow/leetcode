@@ -15,7 +15,6 @@ class Solution(object):
         :rtype: int
         """
         timePoints = sorted(timePoints, self.cmp_time)
-        print timePoints
 
         time_point1 = timePoints[0]
         time_point2 = timePoints[-1]
