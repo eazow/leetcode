@@ -14,17 +14,17 @@ class Solution(object):
         :type timePoints: List[str]
         :rtype: int
         """
-        timePoints = sorted(timePoints, self.cmp_time)
+        time_points = sorted(timePoints, self.cmp_time)
 
-        time_point1 = timePoints[0]
-        time_point2 = timePoints[-1]
+        time_point1 = time_points[0]
+        time_point2 = time_points[-1]
         hour1, minute1 = map(int, time_point1.split(":"))
         hour2, minute2 = map(int, time_point2.split(":"))
 
         difference = hour1 * 60 + minute1 + (23 - hour2) * 60 + 60 - minute2
-        for i in xrange(len(timePoints) - 1):
-            time_point1 = timePoints[i]
-            time_point2 = timePoints[i + 1]
+        for i in xrange(len(time_points) - 1):
+            time_point1 = time_points[i]
+            time_point2 = time_points[i + 1]
 
             hour1, minute1 = map(int, time_point1.split(":"))
             hour2, minute2 = map(int, time_point2.split(":"))
