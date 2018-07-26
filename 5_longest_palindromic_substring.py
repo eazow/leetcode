@@ -31,4 +31,5 @@ class Solution(object):
 
         return s[start:end+1]
 
-Solution().longestPalindromic("abcbaabc")
+
+assert Solution().longestPalindrome("abcbaabc") == "cbaabc"
