@@ -1,8 +1,11 @@
 # LeetCode Online Judge
 
+
 | # | Problems   | Difficulty          | Solutions    |
 |:--|:--------- |:------------- |:---------- |
-| 1 |[Two Sum](https://leetcode.com/problems/two-sum/) | Easy | [Two Sum](http://www.jianshu.com/p/c34886c78e17) |
+|1|[Two Sum](https://leetcode.com/problems/two-sum/) | Easy | [Two Sum](http://www.jianshu.com/p/c34886c78e17) |
+|2|[Add Two Sum](https://leetcode.com/problems/add-two-numbers/description/)|Medium|[Add Two Number](https://www.jianshu.com/p/11224e015ae3)|
+|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)|Medium|[Longest Substring Without Repeating Characters](https://www.jianshu.com/p/1803f19afc1d)|
 |12|[Integer to Roman](https://leetcode.com/problems/integer-to-roman/)|Medium|[Integer to Roman](http://www.jianshu.com/p/e0bd6ab68df3)|
 |22|[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)|Medium|[Generate Parentheses](http://www.jianshu.com/p/ff0ef6914107) |
 |39|[Combination Sum](https://leetcode.com/problems/combination-sum/)| Medium | [Combination Sum](http://www.eazow.com/2016/08/19/LeetCode-39-Combination-Sum/)|
@@ -26,8 +29,9 @@
 |492|[Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle)   |Easy| [Construct the Rectangle](http://www.jianshu.com/p/f4da2927fffe)|
 |530| [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)   | Easy | [Minimum Absolute Difference in BST](http://www.jianshu.com/p/f6ce5df1895f) |
 |535|[Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl)  | Medium | [Encode and Decode TinyURL](http://www.jianshu.com/p/09d79186f859) |
-|599 | [Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists)    |  Easy|  [Minimum Index Sum of Two lists](http://www.jianshu.com/p/b2fceb996062) |
-| 606  | [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree)   | Easy | [Construct String from Binary Tree](http://www.jianshu.com/p/9df545283b21) |
+|599| [Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists)    |  Easy|  [Minimum Index Sum of Two lists](http://www.jianshu.com/p/b2fceb996062) |
+|606| [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree)   | Easy | [Construct String from Binary Tree](http://www.jianshu.com/p/9df545283b21) |
+
 
 ##### 进度
 ![进度](https://upload-images.jianshu.io/upload_images/1425939-9c5c4433022e3ee4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
