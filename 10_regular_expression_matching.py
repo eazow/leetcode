@@ -17,8 +17,8 @@ class Solution(object):
             return first_match and self.isMatch(s[1:], p[1:])
 
 
-print Solution().isMatch("aa", "a")
-print Solution().isMatch("aa", "a*")
-print Solution().isMatch("ab", ".*")
-print Solution().isMatch("aab", "c*a*b")
-print Solution().isMatch("mississippi", "mis*is*p*.")
+assert Solution().isMatch("aa", "a") == False
+assert Solution().isMatch("aa", "a*") == True
+assert Solution().isMatch("ab", ".*") == True
+assert Solution().isMatch("aab", "c*a*b") == True
+assert Solution().isMatch("mississippi", "mis*is*p*.") == False
