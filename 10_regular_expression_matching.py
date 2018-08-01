@@ -1,5 +1,5 @@
 class Solution(object):
-    def isMatch(self, s, p):
+    def isMatch2(self, s, p):
         """
         :param s: str
         :param p: str
@@ -16,9 +16,29 @@ class Solution(object):
         else:
             return first_match and self.isMatch(s[1:], p[1:])
 
+    def isMatch(self, s, p):
+        dp = {}
+        i = len(s)
+        j = len(p) - 1
 
-assert Solution().isMatch("aa", "a") == False
-assert Solution().isMatch("aa", "a*") == True
-assert Solution().isMatch("ab", ".*") == True
-assert Solution().isMatch("aab", "c*a*b") == True
-assert Solution().isMatch("mississippi", "mis*is*p*.") == False
+        dp[(len(s), len(p))] = True
+        while i >= 0:
+            j = len(p) - 1
+            while j >= 0:
+                first_match = True if i < len(s) and (s[i] == p[j] or p[j] == ".") else False
+                if j + 1 < len(p) and p[j+1] == "*":
+                    dp[(i, j)] = first_match and dp.get((i+1, j), False) or dp.get((i, j + 2), False)
+                else:
+                    dp[(i, j)] = dp.get((i+1, j+1), False) and first_match
+
+                j -= 1
+            i -= 1
+
+        return dp[(0, 0)] if (0, 0) in dp else False
+
+
+assert Solution().isMatch("aa", "a") is False
+assert Solution().isMatch("aa", "a*") is True
+assert Solution().isMatch("ab", ".*") is True
+assert Solution().isMatch("aab", "c*a*b") is True
+assert Solution().isMatch("mississippi", "mis*is*p*.") is False
