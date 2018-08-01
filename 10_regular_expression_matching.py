@@ -1,6 +1,7 @@
 class Solution(object):
     def isMatch2(self, s, p):
         """
+        Runtime: 1896ms
         :param s: str
         :param p: str
         :return: bool
@@ -17,6 +18,12 @@ class Solution(object):
             return first_match and self.isMatch(s[1:], p[1:])
 
     def isMatch(self, s, p):
+        """
+        Runtime: 112ms
+        :param s: str
+        :param p: str
+        :return: bool
+        """
         dp = {}
         i = len(s)
         j = len(p) - 1
