@@ -9,10 +9,10 @@ class Solution(object):
         for i in range(len(nums)):
             j = len(nums) - 1
             while j > i + 1:
-                k_start = i
-                k_end = j
-                k = (k_start + k_end) / 2
-                while k_start <= k_end and i < k < j:
+                k_start = i + 1
+                k_end = j - 1
+                while k_start <= k_end:
+                    k = (k_start + k_end) / 2
                     the_sum = nums[i] + nums[j] + nums[k]
                     if the_sum == 0:
                         result[nums[i], nums[k], nums[j]] = [nums[i], nums[j], nums[k]]
@@ -20,10 +20,7 @@ class Solution(object):
                     elif the_sum < 0:
                         k_start = k + 1
                     else:
-                        k_end = k
-                    k = (k_start + k_end) / 2
-                    if k_start == k:
-                        break
+                        k_end = k - 1
                 j -= 1
         return result.values()
 
