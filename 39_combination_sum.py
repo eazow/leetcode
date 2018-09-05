@@ -38,6 +38,6 @@ class Solution(object):
                     i += 1
 
 
-assert Solution().combinationSum([2,3,4], 7)==[[2,2,3], [3,4]]
-assert Solution().combinationSum([2,3,6,7], 7)==[[2,2,3], [7]]
+assert Solution().combinationSum([2, 3, 4], 7) == [[2, 2, 3], [3, 4]]
+assert Solution().combinationSum([2, 3, 6, 7], 7) == [[2, 2, 3], [7]]
 assert Solution().combinationSum([2], 1) == []
