@@ -8,8 +8,8 @@ class Solution():
         nums.sort()
         result = []
         result_set = set()
-        for left in range(len(nums) - 3):
-            for right in range(len(nums) - 1, 2, -1):
+        for left in xrange(len(nums) - 3):
+            for right in xrange(len(nums) - 1, 2, -1):
                 i = left + 1
                 j = right - 1
                 while i < j:
