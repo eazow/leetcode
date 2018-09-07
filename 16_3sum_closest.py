@@ -27,4 +27,4 @@ class Solution(object):
 
 assert Solution().threeSumClosest([-1, 2, 1, -4], 1) == 2
 assert Solution().threeSumClosest([-3, 0, 1, 2], 1) == 0
-assert Solution().threeSumClosest([1,2,4,8,16,32,64,128], 82) == 82
+assert Solution().threeSumClosest([1, 2, 4, 8, 16, 32, 64, 128], 82) == 82
