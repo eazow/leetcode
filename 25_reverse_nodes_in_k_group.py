@@ -22,14 +22,14 @@ class Solution(object):
         elif len(nodes) < k:
             return head
 
-        reverse_nodes_head = nodes[k - 1]
+        reverse_nodes_head = ListNode(0)
         reverse_nodes_tail = reverse_nodes_head
 
         i = 1
         while i * k <= len(nodes):
-            index = k * i
-            while index >= k * (i - 1) + 1:
-                reverse_nodes_tail.next = nodes[index - 1]
+            index = k * i - 1
+            while index >= k * (i - 1):
+                reverse_nodes_tail.next = nodes[index]
                 reverse_nodes_tail = reverse_nodes_tail.next
                 index -= 1
             i += 1
@@ -38,25 +38,22 @@ class Solution(object):
             reverse_nodes_tail.next = nodes[k * (i - 1)]
         else:
             reverse_nodes_tail.next = None
-        return reverse_nodes_head
+        return reverse_nodes_head.next
 
+
+assert Solution().reverseKGroup(None, 1) is None
+assert Solution().reverseKGroup(ListNode(1), 2).val == 1
 
 head_node = ListNode(1)
 head_node.next = ListNode(2)
 head_node.next.next = ListNode(3)
 head_node.next.next.next = ListNode(4)
 head_node.next.next.next.next = ListNode(5)
-head_node.next.next.next.next.next = ListNode(6)
 
-head_node = Solution().reverseKGroup(head_node, 3)
+head_node = Solution().reverseKGroup(head_node, 2)
 
-
-while head_node:
-    print head_node.val
-    head_node = head_node.next
-
-# assert head_node.val == 2
-# assert head_node.next.val == 1
-# assert head_node.next.next.val == 4
-# assert head_node.next.next.next.val == 3
-# assert head_node.next.next.next.next.val == 6
+assert head_node.val == 2
+assert head_node.next.val == 1
+assert head_node.next.next.val == 4
+assert head_node.next.next.next.val == 3
+assert head_node.next.next.next.next.val == 5
