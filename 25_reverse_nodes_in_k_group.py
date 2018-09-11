@@ -12,31 +12,51 @@ class Solution(object):
         :return: ListNode
         """
         nodes = []
-        while head:
-            nodes.append(head)
-            head = head.next
+        current = head
+        while current:
+            nodes.append(current)
+            current = current.next
+
+        if len(nodes) == 0:
+            return None
+        elif len(nodes) < k:
+            return head
 
         reverse_nodes_head = nodes[k - 1]
         reverse_nodes_tail = reverse_nodes_head
 
-        while k >= 2:
-            reverse_nodes_tail.next = nodes[k - 2]
-            reverse_nodes_tail = reverse_nodes_tail.next
-            k -= 1
-        reverse_nodes_tail.next = nodes[k]
+        i = 1
+        while i * k <= len(nodes):
+            index = k * i
+            while index >= k * (i - 1) + 1:
+                reverse_nodes_tail.next = nodes[index - 1]
+                reverse_nodes_tail = reverse_nodes_tail.next
+                index -= 1
+            i += 1
 
+        if len(nodes) % k != 0:
+            reverse_nodes_tail.next = nodes[k * (i - 1)]
+        else:
+            reverse_nodes_tail.next = None
         return reverse_nodes_head
 
 
-head = ListNode(1)
-head.next = ListNode(2)
-head.next.next = ListNode(3)
-head.next.next.next = ListNode(4)
-head.next.next.next.next = ListNode(5)
+head_node = ListNode(1)
+head_node.next = ListNode(2)
+head_node.next.next = ListNode(3)
+head_node.next.next.next = ListNode(4)
+head_node.next.next.next.next = ListNode(5)
+head_node.next.next.next.next.next = ListNode(6)
 
-head = Solution().reverseKGroup(head, 3)
-assert head.val == 3
-assert head.next.val == 2
-assert head.next.next.val == 1
-assert head.next.next.next.val == 4
-assert head.next.next.next.next.val == 5
+head_node = Solution().reverseKGroup(head_node, 3)
+
+
+while head_node:
+    print head_node.val
+    head_node = head_node.next
+
+# assert head_node.val == 2
+# assert head_node.next.val == 1
+# assert head_node.next.next.val == 4
+# assert head_node.next.next.next.val == 3
+# assert head_node.next.next.next.next.val == 6
