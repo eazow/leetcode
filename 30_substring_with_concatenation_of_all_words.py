@@ -46,5 +46,5 @@ class Solution(object):
 
 
 assert Solution().findSubstring("barfoothefoobarman", ["foo", "bar"]) == [0, 9]
-assert Solution().findSubstring("wordgoodgoodgoodbestword", ["word","good","best","word"]) == []
-assert Solution().findSubstring("ababaab", ["ab","ba","ba"]) == [1]
+assert Solution().findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "word"]) == []
+assert Solution().findSubstring("ababaab", ["ab", "ba", "ba"]) == [1]
