@@ -1,8 +1,8 @@
-MIN_INTEGER = -1 * (1 << 31)
-MAX_INTEGER = (1 << 31) - 1
-
-
 class Solution(object):
+    def __init__(self):
+        self.MIN_INTEGER = -1 * (1 << 31)
+        self.MAX_INTEGER = (1 << 31) - 1
+
     def divide(self, dividend, divisor):
         """
         :param dividend: int
@@ -10,8 +10,8 @@ class Solution(object):
         :return: int
         """
         result = int(dividend / float(divisor))
-        if result > MAX_INTEGER:
-            result = MAX_INTEGER
+        if result > self.MAX_INTEGER:
+            result = self.MAX_INTEGER
         # elif result < MIN_INTEGER:
         #     result = MIN_INTEGER
         return result
