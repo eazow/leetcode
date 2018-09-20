@@ -27,7 +27,7 @@ class Solution(object):
         return max_length
 
 
-print Solution().longestValidParentheses("((((()))))")
-print Solution().longestValidParentheses(")()())")
-print Solution().longestValidParentheses("()(()")
-print Solution().longestValidParentheses("())")
+assert Solution().longestValidParentheses("((((()))))") == 10
+assert Solution().longestValidParentheses(")()())") == 4
+assert Solution().longestValidParentheses("()(()") == 2
+assert Solution().longestValidParentheses("())") == 2
