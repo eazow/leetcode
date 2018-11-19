@@ -3,7 +3,7 @@ class Solution(object):
         self.result_map = {}
 
     def isMatch(self, s, p):
-        dp = [[0 for col in xrange(len(p))] for row in xrange(len(s))]
+        dp = [[False for col in xrange(len(p))] for row in xrange(len(s))]
 
         if len(p) == 0 and len(s) == 0:
             return True
@@ -22,17 +22,23 @@ class Solution(object):
             if p[0] == "*":
                 dp[i][0] = True
             else:
+                break
                 dp[i][0] = False
 
+        question_marks = 0
+        if p[0] == "?":
+            question_marks = 1
         for j in xrange(1, len(p)):
             if p[j] == "*":
                 dp[0][j] = dp[0][j-1]
-            elif p[j-1] == "*" and (s[0] == p[j] or p[j] == "?"):
+            elif p[j-1] == "*" and (s[0] == p[j] or p[j] == "?") and question_marks == 0:
                 dp[0][j] = dp[0][j-1]
-            else:
-                dp[0][j] = False
+                question_marks += 1
+            # else:
+            #     dp[0][j] = False
 
-        print dp
+        for row in dp:
+            print row
 
         for i in xrange(1, len(s)):
             for j in xrange(1, len(p)):
@@ -81,8 +87,10 @@ class Solution(object):
     return result
 """
 
-Solution().isMatch("b", "?*?")
-# Solution().isMatch("c", "*?*")
+# assert Solution().isMatch("b", "?*?") == False
+# assert Solution().isMatch("c", "*?*") == True
+# assert Solution().isMatch("ab", "?*?*") == True
+assert Solution().isMatch("abbbba", "a**a*?") == False
 # print Solution().isMatch("aab", "c*a*b")
 # print Solution().isMatch("aa", "a")
 # print Solution().isMatch("a", "aa")
