@@ -35,4 +35,4 @@ class Solution(object):
 
 assert Solution().jump([0]) == 0
 assert Solution().jump([2, 3, 1, 1, 4]) == 2
-assert Solution().jump([2,2,1,3,1,1,1,1]) == 4
+assert Solution().jump([2, 2, 1, 3, 1, 1, 1, 1]) == 4
