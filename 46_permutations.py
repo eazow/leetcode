@@ -4,14 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        returnLists = [[]]
+        return_lists = [[]]
         for num in nums:
-            newLists = []
-            for returnList in returnLists:
-                for i in range(len(returnList)+1):
-                    newList = returnList[:i] + [num] + returnList[i:]
-                    newLists.append(newList)
-            returnLists = newLists
-        return returnLists
-        
-assert Solution().permute([1,2,3])==[[3, 2, 1], [2, 3, 1], [2, 1, 3], [3, 1, 2], [1, 3, 2], [1, 2, 3]]
+            new_lists = []
+            for return_list in return_lists:
+                for i in range(len(return_list) + 1):
+                    new_list = return_list[:i] + [num] + return_list[i:]
+                    new_lists.append(new_list)
+                    return_lists = new_lists
+        return return_lists
+
+
+assert Solution().permute([1, 2, 3]) == [[3, 2, 1], [2, 3, 1], [2, 1, 3], [3, 1, 2], [1, 3, 2], [1, 2, 3]]
