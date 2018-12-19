@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 class Solution(object):
     def reverse(self, nums, i, j):
         while i < j:
@@ -19,10 +20,10 @@ class Solution(object):
         if len(nums) == 0 or len(nums) == 1:
             return
 
-        i = len(nums) - 1
-        while nums[i - 1] > nums[i]:
+        i = len(nums) - 2
+        while nums[i] >= nums[i+1] and i >= 0:
             i -= 1
-        left = i - 1
+        left = i
 
         if left >= 0:
             i = len(nums) - 1
@@ -34,21 +35,26 @@ class Solution(object):
         self.reverse(nums, left+1, len(nums)-1)
 
 
-# nums = [1,2,7,5,3,1]
-# Solution().nextPermutation(nums)
-# assert nums == [1,3,1,2,5,7]
-#
-# nums = [1,2,3]
-# Solution().nextPermutation(nums)
-# assert nums == [1,3,2]
+nums = [1, 2, 7, 5, 3, 1]
+Solution().nextPermutation(nums)
+assert nums == [1, 3, 1, 2, 5, 7]
 
-# nums = [1,5,1]
-# Solution().nextPermutation(nums)
-# assert nums == [5,1,1]
+nums = [1, 2, 3]
+Solution().nextPermutation(nums)
+assert nums == [1, 3, 2]
 
-# Solution().nextPermutation([1, 1])
+nums = [1, 5, 1]
+Solution().nextPermutation(nums)
+assert nums == [5, 1, 1]
 
-# Solution().nextPermutation([1, 1])
+nums = [1, 1]
+Solution().nextPermutation(nums)
+assert nums == [1, 1]
 
-Solution().nextPermutation([3, 2, 1])
-# Solution().nextPermutation([1,2,3]) == [1,3,2]
+nums = [3, 2, 1]
+Solution().nextPermutation(nums)
+assert nums == [1, 2, 3]
+
+nums = [5, 1, 1]
+Solution().nextPermutation(nums)
+assert nums == [1, 1, 5]
