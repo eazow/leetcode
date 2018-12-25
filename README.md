@@ -43,44 +43,47 @@ https://github.com/eazow/leetcode
 [Eazow](http://www.eazow.com)
 
 ##### 版本
-0.2.8.8
+0.2.9.0
 
 ##### 更新日志
 ```
 2016.06.01
-347 Top K Frequent Elements
+347. Top K Frequent Elements
 
 2016.06.03
-319 Bulb Switcher
-343 Integer Break
-268 Missing Number
-144 Binary Tree Preorder Traversal
+319. Bulb Switcher
+343. Integer Break
+268. Missing Number
+144. Binary Tree Preorder Traversal
 
 2016.06.06
-94 Binary Tree Inorder Traversal
-318 Maximum Product of Word Lengths
-12 Integer to Roman
+94. Binary Tree Inorder Traversal
+318. Maximum Product of Word Lengths
+12. Integer to Roman
 
 2016.06.13
-108 Convert Sorted Array to Binary Search Tree
+108. Convert Sorted Array to Binary Search Tree
 
 2016.06.14
-357 Count Numbers with Unique Digits
+357. Count Numbers with Unique Digits
 
 2016.06.20
 完成100题
-20 Generate Parentheses
-309 Best Time to Buy and Sell Stock with Cooldown
+20. Generate Parentheses
+309. Best Time to Buy and Sell Stock with Cooldown
 
 2016.08.20
-377 Combination Sum IV
+377. Combination Sum IV
 
 2016.09.01
-39 Combination Sum
-167 Two Sum II - Input array is sorted
+39. Combination Sum
+167. Two Sum II - Input array is sorted
 
 2018.07.25
 调整排序为按题号排序，这样比较容易对照leetcode整理
+
+2018.12.25
+改为按题号顺序处理，已解决前50题
 
 持续更新中...
 ```
