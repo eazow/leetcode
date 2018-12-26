@@ -3,6 +3,12 @@
 class Solution(object):
     def trap(self, height):
         """
+        1. 找到容器最高点位置max_height_index, 最高点高度max_height。找到最高点后，左边和右边的bar都能跟其形成容器蓄水
+        2. 从左往右处理至max_height_index, left_max记录遍历时左边区间的最高高度, 如果height[i] > left_max, 则该格无法蓄水，
+           将left_max更新为height[i]; 如果height[i] < left_max，则该格可以蓄水left_max - height[i]
+        3. 从右往左处理至max_height_index，right_max记录遍历时右边区间的最高高度，如果height[i] > right_max, 则该格无法蓄水，
+           将right_max更新为height[i]; 如果height[i] < right_max，则该格可以蓄水left_max - height[i]
+        4. 将每格可以蓄的水累加即可
         :param height: List[int]
         :return: int
         """
