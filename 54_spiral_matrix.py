@@ -1,4 +1,13 @@
 class Solution(object):
+    def __init__(self):
+        self.row_col_set = set()
+        self.nums = []
+
+    def add(self, row_col, num):
+        if row_col not in self.row_col_set:
+            self.row_col_set.add(row_col)
+            self.nums.append(num)
+
     def spiralOrder(self, matrix):
         """
         :param matrix: List[List[int]]
@@ -10,51 +19,40 @@ class Solution(object):
         cols_count = len(matrix[0])
         rows_count = len(matrix)
 
-        results = []
         row = 0
         col = 0
         height = 0
         while height * 2 < rows_count:
             # right
-            add_flag = False
-            for col in range(col, cols_count - height):
-                results.append(matrix[row][col])
-                add_flag = True
-
-            if not add_flag:
-                break
+            for col in xrange(col, cols_count - height):
+                self.add((row, col), matrix[row][col])
 
             row += 1
-            # down
-            add_flag = False
-            for row in range(row, rows_count - height):
-                results.append(matrix[row][col])
-                add_flag = True
-
-            if not add_flag:
+            if row >= rows_count:
                 break
+
+            # down
+            for row in xrange(row, rows_count - height):
+                self.add((row, col), matrix[row][col])
+
             col -= 1
+            if col < 0:
+                break
 
             # left
-            add_flag = False
-            for col in range(col, height - 1, -1):
-                results.append(matrix[row][col])
-                add_flag = True
-
-            if not add_flag:
-                break
+            for col in xrange(col, height - 1, -1):
+                self.add((row, col), matrix[row][col])
 
             row -= 1
             height += 1
 
             # up
-            for row in range(row, height - 1, -1):
-                results.append(matrix[row][col])
+            for row in xrange(row, height - 1, -1):
+                self.add((row, col), matrix[row][col])
 
             col += 1
 
-        print results
-        return results
+        return self.nums
 
 
 assert Solution().spiralOrder([
@@ -69,7 +67,11 @@ assert Solution().spiralOrder([
     [9, 10, 11, 12]
 ]) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
 
-Solution().spiralOrder([
+assert Solution().spiralOrder([
     [2, 5, 8],
     [4, 0, -1]
-])
+]) == [2, 5, 8, -1, 0, 4]
+
+assert Solution().spiralOrder([[2, 3]]) == [2, 3]
+
+assert Solution().spiralOrder([[7], [9], [6]]) == [7, 9, 6]
