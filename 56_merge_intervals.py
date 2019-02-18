@@ -12,6 +12,10 @@ class Interval(object):
         return "Interval: %s, %s" % (self.start, self.end)
 
 
+def cmp_interval(interval1, interval2):
+    return -1 if interval1.start <= interval2.start else 1
+
+
 class Solution(object):
     def merge(self, intervals):
         """
@@ -20,6 +24,9 @@ class Solution(object):
         """
         if len(intervals) <= 1:
             return intervals
+
+        intervals = sorted(intervals, cmp_interval)
+
         i = 0
         merge_intervals = []
         while i < len(intervals) - 1:
@@ -34,16 +41,17 @@ class Solution(object):
             if end < start_next:
                 merge_intervals.append(interval)
             elif start_next <= end:
-                intervals[i+1] = Interval(start, end_next)
+                intervals[i+1] = Interval(start, max(end, end_next))
 
             i += 1
 
         merge_intervals.append(intervals[i])
 
-        for interval in merge_intervals:
-            print interval
         return merge_intervals
 
 
 assert Solution().merge([Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15, 18)]) == \
        [Interval(1, 6), Interval(8, 10), Interval(15, 18)]
+assert Solution().merge([Interval(1, 4), Interval(4, 5)]) == [Interval(1, 5)]
+assert Solution().merge([Interval(1, 4), Interval(0, 4)]) == [Interval(0, 4)]
+assert Solution().merge([Interval(1, 4), Interval(0, 0)]) == [Interval(0, 0), Interval(1, 4)]
