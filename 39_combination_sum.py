@@ -37,7 +37,32 @@ class Solution(object):
                 else:
                     i += 1
 
+    def combination_sum(self, candidates, target):
+        self.result_nums = []
+        candidates.sort()
+        self.dfs(candidates, 0, target, [])
+        return self.result_nums
 
-assert Solution().combinationSum([2, 3, 4], 7) == [[2, 2, 3], [3, 4]]
-assert Solution().combinationSum([2, 3, 6, 7], 7) == [[2, 2, 3], [7]]
-assert Solution().combinationSum([2], 1) == []
+    def dfs(self, nums, start_index, target, temp_nums):
+        i = start_index
+        while i < len(nums):
+            num = nums[i]
+            if num == target:
+                self.result_nums.append(temp_nums.append(num))
+                print self.result_nums
+                break
+            elif num < target:
+                temp_nums.append(num)
+                self.dfs(nums, i, target-num, temp_nums[:])
+            else:
+                return
+            i += 1
+
+
+
+# assert Solution().combinationSum([2, 3, 4], 7) == [[2, 2, 3], [3, 4]]
+# assert Solution().combinationSum([2, 3, 6, 7], 7) == [[2, 2, 3], [7]]
+# assert Solution().combinationSum([2], 1) == []
+
+
+print Solution().combination_sum([2, 3, 4], 7)
