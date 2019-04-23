@@ -43,23 +43,23 @@ class Solution(object):
         :type tatget: int
         :rtype List[List[int]]
         """
-        self.result_nums = []
+        solutions = []
         candidates.sort()
-        self.dfs(candidates, 0, target, [])
-        return self.result_nums
+        self.dfs(candidates, 0, target, [], solutions)
+        return solutions
 
-    def dfs(self, nums, start_index, target, temp_nums):
+    def dfs(self, nums, start_index, target, solution, solutions):
         i = start_index
         while i < len(nums):
             num = nums[i]
             if num == target:
-                temp_nums.append(num)
-                self.result_nums.append(temp_nums)
+                solution.append(num)
+                solutions.append(solution)
                 return
             elif num < target:
-                temp_nums.append(num)
-                self.dfs(nums, i, target-num, temp_nums[:])
-                temp_nums.pop()
+                solution.append(num)
+                self.dfs(nums, i, target-num, solution[:], solutions)
+                solution.pop()
             else:
                 return
             i += 1
