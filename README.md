@@ -34,7 +34,7 @@
 
 
 ##### 进度
-![](https://upload-images.jianshu.io/upload_images/1425939-dfb2f1dd4cd957d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/1425939-f5b3cb4a17c04501.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ##### Github
 https://github.com/eazow/leetcode
@@ -43,7 +43,7 @@ https://github.com/eazow/leetcode
 [Eazow](http://www.eazow.com)
 
 ##### 版本
-0.2.9.6
+0.2.9.8
 
 ##### 更新日志
 ```

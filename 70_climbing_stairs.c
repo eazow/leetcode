@@ -28,8 +28,8 @@ int main(int argc, char **argv) {
     assert(climbStairs(1) == 1);
     assert(climbStairs(2) == 2);
     assert(climbStairs(3) == 3);
-	assert(climbStairs(4) == 5);
-	assert(climbStairs(5) == 8);
+    assert(climbStairs(4) == 5);
+    assert(climbStairs(5) == 8);
 
     return 0;
 }
