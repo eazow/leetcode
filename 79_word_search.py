@@ -18,23 +18,18 @@ class Solution(object):
     def dfs(self, board, row, col, word):
         if len(word) == 0:
             return True
-        if board[row][col] != word[0]:
-            return False
-        if len(word) == 1:
-            return True
 
-        result = False
+        if row < 0 or row >= len(board) or col < 0 or col >= len(board[0]) or board[row][col] != word[0]:
+            return False
+
         board[row][col] = "#"
-        if row < len(board) - 1:
-            result |= self.dfs(board, row+1, col, word[1:])
-        if row >= 1:
-            result |= self.dfs(board, row-1, col, word[1:])
-        if col >= 1:
-            result |= self.dfs(board, row, col-1, word[1:])
-        if col < len(board[0]) - 1:
-            result |= self.dfs(board, row, col + 1, word[1:])
+        result = self.dfs(board, row+1, col, word[1:]) or \
+            self.dfs(board, row-1, col, word[1:]) or \
+            self.dfs(board, row, col-1, word[1:]) or \
+            self.dfs(board, row, col + 1, word[1:])
         board[row][col] = word[0]
         return result
+
 
 board = [
   ['A','B','C','E'],
