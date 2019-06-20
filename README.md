@@ -43,7 +43,7 @@ https://github.com/eazow/leetcode
 [Eazow](http://www.eazow.com)
 
 ##### 版本
-0.2.9.8
+0.2.9.9
 
 ##### 更新日志
 ```
