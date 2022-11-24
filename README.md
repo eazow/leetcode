@@ -45,9 +45,14 @@ https://github.com/eazow/leetcode
 ##### 版本
 0.3.0.0
 
-##### Tests
+##### Testing
 ```
-env PYTHONPATH="." pytest
+$ env PYTHONPATH="." pytest
+```
+or
+
+```
+$ inv test
 ```
 
 ##### 更新日志
