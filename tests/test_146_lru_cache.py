@@ -1,6 +1,6 @@
-import importlib
+from common.importing import import_class
 
-LRUCache = getattr(importlib.import_module("146_lru_cache"), "LRUCache")
+LRUCache = import_class("146_lru_cache", "LRUCache")
 
 
 def test_lru_cache():
